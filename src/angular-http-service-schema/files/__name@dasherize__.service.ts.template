@@ -1,0 +1,39 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+/**
+ * adjust your imports to mach with your project folders
+*/
+import { environment } from 'src/environments/environment';
+import { <%= classify(name) %>Interface } from 'src/app/models/<%= dasherize(name) %>.interface';  // change this extends interface to you interface
+
+@Injectable({
+  providedIn: 'root'
+})
+export class <%= classify(name) %>Service {
+
+  private readonly urlBase = environment.urlBase; // change this urlBase to you url api
+  private readonly route = '<%= dasherize(name) %>'
+
+  constructor(private http: HttpClient) { }
+
+  getOne(id: string | number):Observable<<%= classify(name) %>Interface>{
+    return this.http.get<<%= classify(name) %>Interface>(`${this.urlBase}/${this.route}/${id}`);
+  }
+
+  getAll():Observable<<%= classify(name) %>Interface[]>{
+    return this.http.get<<%= classify(name) %>Interface[]>(`${this.urlBase}/${this.route}`);
+  }
+
+  create(<%= singularNameLC %>:<%= classify(name) %>Interface):Observable<<%= classify(name) %>Interface>{
+    return this.http.post<<%= classify(name) %>Interface>(`${this.urlBase}/${this.route}`,<%= singularNameLC %>);
+  }
+
+  update(id: string | number, <%= singularNameLC %>:<%= classify(name) %>Interface):Observable<<%= classify(name) %>Interface>{
+    return this.http.patch<<%= classify(name) %>Interface>(`${this.urlBase}/${this.route}/${id}`,<%= singularNameLC %>);
+  }
+
+  delete(id: string | number):Observable<any>{
+    return this.http.delete<any>(`${this.urlBase}/${this.route}/${id}`);
+  }
+}

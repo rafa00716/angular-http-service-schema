@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "$id": "SchematicsMyService",
+    "title": "My Service Schema",
+    "type": "object",
+    "properties": {
+      "name": {
+        "description": "The name of the service.",
+        "type": "string",
+        "x-prompt": "What NAME do you want to this service?"
+      },
+      "path": {
+        "type": "string",
+        "format": "path",
+        "description": "The path to create the service.",
+        "x-prompt": "What PATH do you want to this service?"
+      },
+      "project": {
+        "type": "string",
+        "description": "The name of the project.",
+        "default": "projectName"
+      }
+     },
+    "required": [
+      "name"
+    ]
+  }
