@@ -39,7 +39,7 @@ This is a custom Angular schematic for generating services that make HTTP reques
 Here's an example of how you could use the schema to generate a new service:
 
 ```bash
-schematics path/to/schematic:my-service
+schematics path/to/schematic:service
 ? What NAME do you want for this service? users
 ? What PATH do you want for this service? src/app/services
 ```
