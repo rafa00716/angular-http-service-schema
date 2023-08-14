@@ -1,7 +1,7 @@
 {
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
-    "angular-http-service-schema": {
+    "service": {
       "description": "A httpClient Service schematic with basics methods for a CRUD system.",
       "factory": "./angular-http-service-schema/index#angularHttpServiceSchema",
       "schema": "./angular-http-service-schema/schema.json"
